@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="css/themes/form.css"/>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        {% if app.user %}
+                        <div class="mb-3">
+                            Você está logado como {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                        </div>
+                        {% else %}
+                        <h5 class="card-title text-center">Login</h5>
+                        <form class="login-form" method="post">
+                            {% if error %}
+                                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            {% endif %}
+
+                            <div class="form-label-group">
+                                <input type="email" name="email" id="inputEmail" class="form-control" value=" {{ last_username }} " placeholder="Email" required autofocus>
+                                <label for="inputEmail">Usuário</label>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+                                <label for="inputPassword">Senha</label>
+                            </div>
+                            <input type="hidden" name="_csrf_token"
+                                   value="{{ csrf_token('authenticate') }}"
+                            >
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Entrar</button>
+                            <div class="text-center" >
+                                <a href={{ path("cadastro_cliente") }}>Crie sua conta</a>
+                            </div>
+                        </form>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

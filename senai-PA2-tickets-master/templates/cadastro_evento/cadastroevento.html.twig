@@ -1,0 +1,60 @@
+{% extends "base.html.twig" %}
+{% block title %}Cadastro de Evento{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="css/themes/form.css"/>
+{% endblock %}
+{% block body %}
+    {% if realizado %}
+        <div class="alert alert-danger" role="alert">
+            Cadastro Realizado
+        </div>
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Cadastro de Evento</h5>
+                        {{ form_start(form) }}
+                        <div class="form-label-group">
+                            {{ form_widget(form.nome_evento, {'attr': {'class': 'form-control' , 'placeholder': 'Nome do Evento'}}) }}
+                            {{form_label(form.nome_evento, 'Nome do Evento')}}
+                        </div>
+
+                        <label for="data" class="placeholder">Horário do Evento</label>
+                        <div class="form-label-group">
+                            {{ form_widget(form.data) }}
+                        </div>
+
+                        <div class="form-label-group">
+                            {{ form_widget(form.descricao, {'attr': {'class': 'form-control' , 'placeholder': 'Descrição'}}) }}
+                        </div>
+
+                        <div class="form-label-group">
+                            {{ form_widget(form.link_imagem, {'attr': {'class': 'form-control' , 'placeholder': 'Link da Imagem'}}) }}
+                            {{form_label(form.link_imagem, 'Link da Imagem')}}
+                        </div>
+
+                        <div class="form-label-group">
+                            {{ form_widget(form.valor, {'attr': {'class': 'form-control' , 'placeholder': 'Valor'}}) }}
+                            {{form_label(form.valor, 'Valor')}}
+                        </div>
+                        <label for="id_local_evento" class="placeholder">Local do Evento</label>
+                        <div class="form-label-group">
+
+                            {{ form_widget(form.id_local_evento, {'attr': {'class': 'form-control'}}) }}
+
+                        </div>
+
+                        <div class="form-label-group">
+                            {{ form_widget(form.confirma, {'attr': {'class': 'btn btn-lg btn-primary btn-block text-uppercase'}}) }}
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+{% endblock %}

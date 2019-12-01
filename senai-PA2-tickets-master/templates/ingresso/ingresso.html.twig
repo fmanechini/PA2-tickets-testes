@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block title %}Ingresso{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/themes/styles2.css') }}"/>
+{% endblock %}
+
+{% block body %}
+
+    <div class="cardWrap">
+        <div class="card cardLeft">
+            <h1>Ticket <span>Evento</span></h1>
+            <div class="title">
+                <h2>{{ingresso.getIdEvento().getNomeEvento()}}</h2>
+                <span>Nome do evento</span>
+            </div>
+            <div class="name">
+                <h2>{{ingresso.getIdCliente().getNomeCliente()}}</h2>
+                <span>Nome do Cliente</span>
+            </div>
+            <div class="date">
+                <h2>{{ingresso.getIdEvento().getData()|date('d/m/Y')}}</h2>
+                <span>Data</span>
+            </div>
+            <div class="time">
+                <h2>{{ingresso.getIdEvento().getData()|date('H:m')}}</h2>
+                <span>Horário</span>
+            </div>
+
+        </div>
+        <div class="card cardRight">
+            <div class="number">
+                <h3>{{ingresso.getCodigo()}}</h3>
+                <span>cadeira</span>
+            </div>
+            <div class="barcode"></div>
+        </div>
+{% endblock %}

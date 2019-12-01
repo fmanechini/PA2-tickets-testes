@@ -1,0 +1,18 @@
+.titleLocal {
+    font-size: 15px; margin: 0 10px 0; color: black; font-weight: bolder;
+}
+.textLocal {
+    font-size: 14px;
+}
+.titlePrice {
+    font-size: 15px; margin: 0 10px 0; color: black; font-weight: bolder;
+}
+.textPrice {
+    font-size: 14px;
+}
+.titleDate {
+    font-size: 15px; margin: 0 10px 0; color: black; font-weight: bolder;
+}
+.textDate {
+    font-size: 14px;
+}

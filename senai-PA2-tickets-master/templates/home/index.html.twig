@@ -1,0 +1,27 @@
+{% extends "base.html.twig"%}
+{% import "_macro/cards.html.twig" as card%}
+
+{% block title %}Login{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="css/themes/form.css"/>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {% for evento in eventos %}
+            <div class="col-sm">
+                <a href="{{ path("details", {id: evento.id}) }}">
+                {{ card.events_card(
+                    evento.LinkImagem ,
+                    evento.NomeEvento,
+                    evento.getIdLocalEvento().getNomeLocal(),
+                    evento.valor,
+                    evento.data|date('d-m-Y')
+                ) }}
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}{% endblock %}
